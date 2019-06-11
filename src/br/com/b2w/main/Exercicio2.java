@@ -8,15 +8,15 @@ import java.util.Stack;
 public class Exercicio2 {
 
 	public static void 
-	possibilidades(Set<Integer> items, Stack<Integer> possibilidades, int size) {
+	possibilidades(Set<Integer> items, Stack<Integer> possibilidades, int tamanho) {
 
-	    if(possibilidades.size() == size) {
+	    if(possibilidades.size() == tamanho) {
 	    	String valor = Arrays.toString(possibilidades.toArray(new Integer[0]));
 	    	valor = valor.replaceAll(",", "");
 	    	valor = valor.replace('[', ' ');
 	    	valor = valor.replace(']', ' ');
 	    	Long valorLong = Long.valueOf(valor.replaceAll(" ", ""));
-	    	if(valorLong.toString().length() == size) {
+	    	if(valorLong.toString().length() == tamanho) {
 	    		  System.out.println(Arrays.toString(possibilidades.toArray(new Integer[0])));
 	    	}
 	      
@@ -26,7 +26,7 @@ public class Exercicio2 {
 	    for(Integer i : itemsTemp) {
 	    	possibilidades.push(i);
 	        items.remove(i);
-	        possibilidades(items, possibilidades, size);
+	        possibilidades(items, possibilidades, tamanho);
 	        items.add(possibilidades.pop());
 	    }
 	}
